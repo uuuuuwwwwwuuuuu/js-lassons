@@ -4,9 +4,9 @@ function c(arg) {
 
 //________________________________________________________________________
 
-numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?", "");
+const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
 
-personalMovieDB = {
+const personalMovieDB = {
     count: numberOfFilms,
     movies: {},
     actors: {},
@@ -14,9 +14,12 @@ personalMovieDB = {
     privat: false
 };
 
-personalMovieDB['movies'] = {
-    lastFilm: prompt ("Один из последних просмотренных фильмов?", ""),
-    gradeFilm: prompt ("На скольно вы его оцените?", "")
-};
+const aa = prompt ("Один из последних просмотренных фильмов?", ""),
+      bb = prompt ("На скольно вы его оцените?", ""),
+      cc = prompt ("Один из последних просмотренных фильмов?", ""),
+      dd = prompt ("На скольно вы его оцените?", "");
+
+personalMovieDB.movies[aa] = bb;
+personalMovieDB.movies[cc] = dd;
 
 console.log(personalMovieDB);
