@@ -2,24 +2,27 @@ function c(arg) {
     console.log(arg);
 }
 
-//________________________________________________________________________
+//_________________________________Тернарный оператор_______________________________________
 
-const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+// const num = 10;
 
-const personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
-};
+// (num == 20) ? c('10 = 10') : c(`${num} != 20`);
 
-const aa = prompt ("Один из последних просмотренных фильмов?", ""),
-      bb = prompt ("На скольно вы его оцените?", ""),
-      cc = prompt ("Один из последних просмотренных фильмов?", ""),
-      dd = prompt ("На скольно вы его оцените?", "");
+//_________________________________Switch_______________________________________
 
-personalMovieDB.movies[aa] = bb;
-personalMovieDB.movies[cc] = dd;
+// const num = 10;
 
-console.log(personalMovieDB);
+// switch (num) {
+//     case 50:
+//         c("No");
+//         break;
+//     case 27:
+//         c('No');
+//         break;
+//     case 10:
+//         c("Yes");
+//         break;
+//     default:
+//         c("Not today");
+//         break;
+// }
