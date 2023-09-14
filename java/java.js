@@ -1,43 +1,42 @@
-const c = (arg) => {
+'use strict';
+
+function c(arg) {
     console.log(arg);
 }
 
-//_________________________________________________________Циклы в цикле___________________________________________________
+//________________________________________________________________________
 
-// for (let i = 0; i < 3; i++) {
-//     c(i);
-//     for (let j = 0; j < 3; j++) {
-//         c(j);
+const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
+};
+
+// for (let i = 0; i < 2; i++) {
+//     const a = prompt ("Какой последний фильм вы смотрели?", ""),
+//           b = prompt ("На скольно вы его оцените?", "");
+
+//     if (a != null && b != null && a != '' && b != '' && a.length <= 50) {
+//         personalMovieDB.movies[a] = b;
+//         c("done");
+//     } else {
+//         c("error");
+//         i--;
 //     }
 // }
 
-// *
-// **
-// ***
-// ****
-// *****
-// ******
+if (personalMovieDB.count < 10) {
+    c("Просмотренно слишком мало фильмов");
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+    c("Вы классический зритель");
+} else if (personalMovieDB.count > 30) {
+    c("Вы киноман");
+} else {
+    c("Произошла ошибка");
+}
 
-// let res = ""
-
-// for (let i = 0; i <= 6; i++) {
-//     for (let j = 0; j < i; j++) {
-//         res += "*";
-//     }
-
-//     res += "\n"
-// }
-// c(res);
-
-// let res = ""
-
-// fir: for (let i = 0; i < 3; i++) {
-//     c(`First iter: ${i}`);
-//     for (let j = 0; j < 3; j++) {
-//         c(`Second iter: ${j}`);
-//         for (let k = 0; k < 3; k++) {
-//             if (k === 2) break fir;
-//             c(`Third iter: ${k}`);
-//         }
-//     }
-// }
+console.log(personalMovieDB);
