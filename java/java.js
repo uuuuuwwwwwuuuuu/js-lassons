@@ -4,39 +4,16 @@ function c(arg) {
     console.log(arg);
 }
 
-//________________________________________________________________________
+//__________________________________Работа со строками и числами______________________________________
 
-const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+// const some = "Some words";
 
-const personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
-};
+// c(some.substr(5, 5));    // substr(От куда начинать (по индексу), сколько букв вперёд)
 
-// for (let i = 0; i < 2; i++) {
-//     const a = prompt ("Какой последний фильм вы смотрели?", ""),
-//           b = prompt ("На скольно вы его оцените?", "");
+// const num = 12.5;
 
-//     if (a != null && b != null && a != '' && b != '' && a.length <= 50) {
-//         personalMovieDB.movies[a] = b;
-//         c("done");
-//     } else {
-//         c("error");
-//         i--;
-//     }
-// }
+// c(Math.round(num));      // Округляет число
 
-if (personalMovieDB.count < 10) {
-    c("Просмотренно слишком мало фильмов");
-} else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
-    c("Вы классический зритель");
-} else if (personalMovieDB.count > 30) {
-    c("Вы киноман");
-} else {
-    c("Произошла ошибка");
-}
-
-console.log(personalMovieDB);
+// const text = '12.2px';
+// c(parseInt(text));          // Конвертирует текст в Int
+// c(parseFloat(text));        // Конвертирует текст в Float
