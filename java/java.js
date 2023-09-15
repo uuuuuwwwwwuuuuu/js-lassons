@@ -4,42 +4,59 @@ function c(arg) {
     console.log(arg);
 }
 
-//___________________________________Callback func_____________________________________
+//___________________________________Дистриктуризация_____________________________________
 
-//Проблема:
+//Создание и удаление свойства объекта__________
+// const options = {
+//     name: "test",
+//     width: 1024,
+//     height: 1024,
+//     colors: {
+//         border: "black",
+//         bg: "red"
+//     }
+// };
 
-// function first () {
-//     // do smth
-//     setTimeout(() => {
-//         c(1);
-//     }, 2000);
+// delete options.name;
+
+// c(options);
+
+//Перебор объекта выше при помощи цикла__________
+// for (let key in options) {
+//     if (typeof(options[key]) === 'object') {
+//         for (let i in options[key]) {
+//             c(`Свойство: ${key} имеет значение: ${i}, которое имеет значение: ${options[key][i]}`);
+//         }
+//     } else {
+//         c(`Свойство: ${key} имеет значение: ${options[key]}`);
+//     }
 // }
 
-// function second () {
-//     c(2);
+//Перебор кол-ва свойств объекта при помощи цикла__________
+// let counter = null;
+// for (let key in options) {
+//     counter++;
 // }
+// c(counter);
 
-// first();
-// second();
+//Перебор объекта при помощи метода Object.keys(), если прописать Object.keys().length - можно получить кол-во свойств_________
+// c(Object.keys(options));
 
-//Решение:
+//Создание собственных методов внутри собственных объектов и диструктуризация объектов
+// const options = {
+//     name: "test",
+//     width: 1024,
+//     height: 1024,
+//     colors: {
+//         border: "black",
+//         bg: "red"
+//     },
+//     makeTest: () => {
+//         c("Test");
+//     }
+// };
 
-// function lernJS (lang, callback) {
-//     c(`Я учу: ${lang}`);
-//     callback();
-// }
+// options.makeTest();
 
-// function done () {
-//     c("hi");
-// }
-
-// lernJS("Js", done);
-
-//Решение 2:
-
-// function lernJS (lang, callback) {
-//     c(`Я учу: ${lang}`);
-//     callback();
-// }
-
-// lernJS("Js", () => {c("hi")});
+// const {border, bg} = options.colors;
+// c(bg);
