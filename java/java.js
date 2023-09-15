@@ -4,72 +4,42 @@ function c(arg) {
     console.log(arg);
 }
 
-//________________________________________________________________________
+//___________________________________Callback func_____________________________________
 
-let numberOfFilms;
+//Проблема:
 
-function start () {
-    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+// function first () {
+//     // do smth
+//     setTimeout(() => {
+//         c(1);
+//     }, 2000);
+// }
 
-    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-        numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
-    }
-}
+// function second () {
+//     c(2);
+// }
 
-function rememberMyFilms () {
-    for (let i = 0; i < 2; i++) {
-        const a = prompt ("Какой последний фильм вы смотрели?", ""),
-              b = prompt ("На скольно вы его оцените?", "");
-    
-        if (a != null && b != null && a != '' && b != '' && a.length <= 50) {
-            personalMovieDB.movies[a] = b;
-            c("done");
-        } else {
-            c("error");
-            i--;
-        }
-    }
-}
+// first();
+// second();
 
-function detectPersonalLevel () {
-    if (personalMovieDB.count < 10) {
-        c("Просмотренно слишком мало фильмов");
-    } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
-        c("Вы классический зритель");
-    } else if (personalMovieDB.count > 30) {
-        c("Вы киноман");
-    } else {
-        c("Произошла ошибка");
-    }
-}
+//Решение:
 
-function showMyDB () {
-    if (!personalMovieDB.privat) {
-        console.log(personalMovieDB);
-    }
-}
+// function lernJS (lang, callback) {
+//     c(`Я учу: ${lang}`);
+//     callback();
+// }
 
-function writeYourGenres () {
-    for (let i = 0; i < 3; i++) {
-        let a = i + 1;
-        personalMovieDB.genres[i] = prompt(`Ваш любимый фильм под номером ${a}`, '');
-    }
-}
+// function done () {
+//     c("hi");
+// }
 
-start();
+// lernJS("Js", done);
 
-const personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
-};
+//Решение 2:
 
-rememberMyFilms();
+// function lernJS (lang, callback) {
+//     c(`Я учу: ${lang}`);
+//     callback();
+// }
 
-writeYourGenres();
-
-detectPersonalLevel();
-
-showMyDB();
+// lernJS("Js", () => {c("hi")});
