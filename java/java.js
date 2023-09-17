@@ -4,59 +4,38 @@ function c(arg) {
     console.log(arg);
 }
 
-//___________________________________Дистриктуризация_____________________________________
+//__________________________________Массивы и псевдомассивы______________________________________
 
-//Создание и удаление свойства объекта__________
-// const options = {
-//     name: "test",
-//     width: 1024,
-//     height: 1024,
-//     colors: {
-//         border: "black",
-//         bg: "red"
-//     }
-// };
+const arr = [1, 42, 53, 67, 8];
+arr.sort((a, b) => {        //Сортировка по возростанию
+    return a - b;    
+});
+c(arr);
 
-// delete options.name;
+// const str = "Пенис, хер, давалка, хуй, блядина";
+// const ar = str.split(", ");
+// c(ar);  //Строка в массив, а .join массив в строку
 
-// c(options);
 
-//Перебор объекта выше при помощи цикла__________
-// for (let key in options) {
-//     if (typeof(options[key]) === 'object') {
-//         for (let i in options[key]) {
-//             c(`Свойство: ${key} имеет значение: ${i}, которое имеет значение: ${options[key][i]}`);
-//         }
-//     } else {
-//         c(`Свойство: ${key} имеет значение: ${options[key]}`);
-//     }
+// arr.forEach((item, i, arr) => {
+//     c(`${i}: ${item} Внутри массива ${arr}`);
+// });
+
+
+
+// arr.pop();
+// arr.push(10);
+
+
+// for (let i = 0; i < arr.length; i++) {
+//     c(arr[i]);
 // }
 
-//Перебор кол-ва свойств объекта при помощи цикла__________
-// let counter = null;
-// for (let key in options) {
-//     counter++;
+// for (let v of arr) {
+//     c(v);
 // }
-// c(counter);
 
-//Перебор объекта при помощи метода Object.keys(), если прописать Object.keys().length - можно получить кол-во свойств_________
-// c(Object.keys(options));
-
-//Создание собственных методов внутри собственных объектов и диструктуризация объектов
-// const options = {
-//     name: "test",
-//     width: 1024,
-//     height: 1024,
-//     colors: {
-//         border: "black",
-//         bg: "red"
-//     },
-//     makeTest: () => {
-//         c("Test");
-//     }
-// };
-
-// options.makeTest();
-
-// const {border, bg} = options.colors;
-// c(bg);
+// const str = prompt("", "");
+// const arr = str.split(" ");
+// arr.sort();
+// c(arr.join("; "));
