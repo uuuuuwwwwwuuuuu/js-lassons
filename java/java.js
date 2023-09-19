@@ -4,59 +4,41 @@ function c(arg) {
     console.log(arg);
 }
 
-//___________________________________Дистриктуризация_____________________________________
+//_________________________________Динамическая типизация данных_______________________________________
 
-//Создание и удаление свойства объекта__________
-// const options = {
-//     name: "test",
-//     width: 1024,
-//     height: 1024,
-//     colors: {
-//         border: "black",
-//         bg: "red"
-//     }
-// };
+//Число в строку
+// const num = 5;
+// c("https://some/" + num);
 
-// delete options.name;
+// const fontSize = 28 + 'px';
 
-// c(options);
+//Строку в число
+// c(typeof(Number("5")));
+// c(typeof(Number.isInteger("5"))); //какого-то хуя Boolean
 
-//Перебор объекта выше при помощи цикла__________
-// for (let key in options) {
-//     if (typeof(options[key]) === 'object') {
-//         for (let i in options[key]) {
-//             c(`Свойство: ${key} имеет значение: ${i}, которое имеет значение: ${options[key][i]}`);
-//         }
-//     } else {
-//         c(`Свойство: ${key} имеет значение: ${options[key]}`);
-//     }
+// c(typeof(+"6")); //Унарный "+"
+
+// c(parseInt('15px', 10));    // 15 (вырезает первое число из строки, если оно первое)
+// c(parseInt('p15px', 10));    // NaN
+
+// let answer = +prompt('','');
+
+//В bool
+// 1)
+// 0, '', null, undefined, NaN     //False, всё остальное - True (пустые массивы, пустые объекты и тд.)
+
+// let switcher = null;
+// if (switcher) {
+//     c('Working...');        //Не работает
 // }
 
-//Перебор кол-ва свойств объекта при помощи цикла__________
-// let counter = null;
-// for (let key in options) {
-//     counter++;
+// switcher = 1;
+// if (switcher) {
+//     c('Working...');        //Работает
 // }
-// c(counter);
 
-//Перебор объекта при помощи метода Object.keys(), если прописать Object.keys().length - можно получить кол-во свойств_________
-// c(Object.keys(options));
+// 2)
+// c(typeof(Boolean("5")));        //Преобразует в Boolean
 
-//Создание собственных методов внутри собственных объектов и диструктуризация объектов
-// const options = {
-//     name: "test",
-//     width: 1024,
-//     height: 1024,
-//     colors: {
-//         border: "black",
-//         bg: "red"
-//     },
-//     makeTest: () => {
-//         c("Test");
-//     }
-// };
-
-// options.makeTest();
-
-// const {border, bg} = options.colors;
-// c(bg);
+// 3)
+// c(!!"1"); //Так же преобразует в Boolean
