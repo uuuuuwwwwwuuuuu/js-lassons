@@ -1,46 +1,7 @@
-/* body {
-    background-color: black;
-} */
-
-#box {
-    height: 200px;
-    width: 200px;
-    background-color: brown;
-    border-radius: 20%;
-}
-
-.div-buttons {
-    display: flex;
-    justify-content: flex-start;
-}
-
-.buttons {
+button {
     margin: 20px;
-    height: 35px;
-    width: 120px;
-    background-color: aquamarine;
 }
 
-#circles {
-    display: flex;
-    justify-self: flex-start;
-}
-
-.circle {
-    height: 100px;
-    width: 100px;
-    margin-left: 30px;
-    margin-right: 34px;
-    border-radius: 50%;
-    background-color: blueviolet;
-}
-
-.black {
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    height: 50px;
-    width: 50px;
+a {
+    margin-left: 20px;
 }
