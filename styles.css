@@ -1,0 +1,22 @@
+body {
+    background-color: black;
+}
+
+#box {
+    height: 200px;
+    width: 200px;
+    background-color: brown;
+    border-radius: 20%;
+}
+
+.div-buttons {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.buttons {
+    margin: 20px;
+    height: 35px;
+    width: 120px;
+    background-color: aquamarine;
+}

@@ -4,48 +4,22 @@ function c(arg) {
     console.log(arg);
 }
 
-//_________________________________Замыкание и лексическое окружение_______________________________________
+//________________________________________________________________________
 
-//Движение компилятора по коду
-// let num = 5; debugger // 1
+// const box = document.getElementById('box');
 
-// function logNum () {
-//     c(num); debugger //4 //7
-// }
+// c(box);
 
-// num = 6; //2
+// const btns = document.getElementsByTagName('button')
 
-// logNum(); debugger //3
+// c(btns);
 
-// num = 8; //5
+// const buttons = document.querySelectorAll(".buttons");
 
-// logNum(); debugger //6
+// buttons.forEach(item => {
+//     c(item);
+// });
 
-//____________________________________________________________________________________________________________________
+// const buttons = document.querySelector(".buttons");
 
-// function createCounter() {          //Грубо говоря, эта функция - место для хранения значение переменной counter
-//     let counter = 0;
-
-//     const myFoo = function() {      //Функция действия
-//         counter++;                  //Увеличение значение переменной counter и передача значения в 1-ю функцию
-//         return counter;             //Возвращение значение переменной из 1-ой функции
-//     }
-
-//     return myFoo;                   //Возвращение 2-ой функции
-// }
-
-// const increment = createCounter();  //Теперь эта переменная это myFoo()
-// const c1 = increment();             //Обращаясь к переменной increment мы обращаемся к фнкции myFoo(), которая прибавляет 1 переменной counter, возвращает это значение и параллельно устанавливает это значение в переменную counter в 1-ю функцию
-// const c2 = increment();
-// const c3 = increment();
-
-// console.log(c1, c2, c3);
-//____________________________________________________________________________________________________________________
-
-// for (let i = 0; i < 9; i++) {
-//     for (j = 0; j < 9; j++) {
-//         let num = 3;
-//     }
-
-//     c(num);                         //Обратиться к num невозможно, так как num сущесствует только внутри лексического окружения for
-// }
+// c(buttons);
