@@ -1,48 +1,33 @@
 "use strict";
 
 function c(arg) {
-  console.log(arg);
+    console.log(arg);
 }
 
-//________________________________________________________________________
+//___________________________________Навигация по DOM дереву_____________________________________
 
-// const btns = document.querySelectorAll("button"),
-//       overlay = document.querySelector(".overlay")
+//_________________________Ноды_____________________________
+// c(document.body);
+// c(document.documentElement);
+// c(document.body.childNodes);           //дочерние ноды
+// c(document.body.firstChild);           //Первый ребёнок
+// c(document.body.lastChild);            //Последний ребёнок
+// c(document.querySelector("#current").parentNode.parentNode);         //Родительский элемент
+// c(document.querySelector('[data-current = "3"]').nextSibling);       //следующий элемент
+// c(document.querySelector('[data-current = "3"]').previousSibling);      //передидущий элемент
 
-// btn.onclick = () => {        //Старый формат
-//   alert("hi");
+//_________________________Элементы_________________________
+// c(document.querySelector('[data-current = "3"]').nextElementSibling);   //следующий элемент
+// c(document.querySelector('[data-current = "3"]').previousElementSibling);     //передидущий элемент
+// c(document.querySelector("#current").parentElement);        //Родительский элемент
+
+//__________________________________________________________
+
+// for (let node of document.body.childNodes) {
+//     if (node.nodeName == '#text') {
+
+//         continue;
+//     }
+
+//     c(node);
 // }
-
-// btn.addEventListener('click', () => {         //Современный вариант
-//   alert('hi');
-// })
-
-// const deleteEvent = (event) => {         //Современный вариант
-//   let dell = false;
-
-//   c(event.target);
-//   dell = true;
-//   if (dell) {
-//     btn.removeEventListener('click', deleteEvent);
-//   }
-// };
-
-// const deleteEvent = (event) => {
-//   c(event.target);
-//   c(event.type);
-  
-// };
-
-// btns.forEach(item => {
-//   item.addEventListener('click', deleteEvent, {once: true});        //Назначение обработчика событий на все кнопки внутри массива и установка из работы 1 раз
-// });
-
-
-// overlay.addEventListener('click', deleteEvent)    //сплытие событий
-
-// const link = document.querySelector('a');
-
-// link.addEventListener('click', (event) => {
-//   event.preventDefault();       //Отключает стандартное поведение браузера
-//   c('Вы перешли в ютуб');
-// });
