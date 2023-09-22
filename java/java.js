@@ -4,24 +4,22 @@ function c(arg) {
     console.log(arg);
 }
 
-//___________________________________Работа со скриптами_____________________________________
+//_______________________________Нулиш оператор ??_________________________________________
 
-const p = document.querySelectorAll('p');
+const box = document.querySelector('.box');
 
-c(p);
+const newH = 100;
+const newW = 400;
 
-
-// <script async src="java/java.js"></script>       async - загружается в фоновом режиме и начинает работу сразу после его загрузки
-// <script defer src="java/java.js"></script>       defer - загружается в фоновом режиме и начинает работу по приходу его очереди
-
-
-
-function loadScript(src) {
-    const script = document.createElement('script');
-    script.src = src;
-    script.async = false;
-    document.body.append(script);
+function changeParams(elem, h, w) {
+    elem.style.height = `${h ?? 200}px`;
+    elem.style.width = `${w ?? 200}px`;
 }
 
-loadScript('какой-то путь');
+changeParams(box, newH, newW);
+
+// let userName;
+// let userKey;
+
+// c(userName ?? userKey ?? 'User');          //Выводит то, что после ?? (Работает только с Null и Undefinde)
 
