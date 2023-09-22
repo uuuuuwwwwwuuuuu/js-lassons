@@ -1,7 +1,12 @@
-button {
-    margin: 20px;
+body {
+    height: 2000px;
+    display: flex;
+    justify-content: center;
 }
 
-a {
-    margin-left: 20px;
+.box {
+    font-size: 40px;
+    width: 150;
+    height: 150;
+    background-color: red;
 }

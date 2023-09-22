@@ -4,105 +4,36 @@ function c(arg) {
     console.log(arg);
 }
 
-//___________________________________Рекурсия_____________________________________
+//___________________________________Mobile comands_____________________________________
+// touchstart       //при нажатии
+// touchmove        //при меремещении
+// touchend         //при конце клика
+// touchleave       //при покидании зоны объекта, на котором есть это свойство
+// touchcancel      //при покидании пальцем зоны браузера
 
-// function pow(x, n) {
-//     let res = 1;
+window.addEventListener('DOMContentLoaded', () => {
+    const box = document.querySelector('.box');
 
-//     for (let i = 0; i < n; i++) {
-//         res *= x;
-//     }
-//     return res;
-// }
+    box.addEventListener('touchstart', (event) => {
+        event.preventDefault();
 
-// function pow(x, n) {
-//     if (n === 1) {
-//         return x;
-//     } else {
-//         return x * pow(x, n - 1);
-//     }
-// }
-// c(pow(2, 3));                  //Степень     
+        // c('Start');
+        c(event.targetTouches)
+    });
 
-let students = {
-    js: [{
-        name: 'John',
-        progress: 100
-    }, {
-        name: 'Ivan',
-        progress: 60
-    }],
+    // box.addEventListener('touchmove', (event) => {
+    //     event.preventDefault();
 
-    html: {
-        basic: [{
-            name: 'Peter',
-            progress: 20
-        }, {
-            name: 'Ann',
-            progress: 18
-        }],
+    //     c('Move');
+    // });
 
-        pro: [{
-            name: 'Sam',
-            progress: 10
-        }]
-    }
-}
+    // box.addEventListener('touchend', (event) => {
+    //     event.preventDefault();
 
-// function getTotalProgressBuIteration(data) {
-//     let total = 0;
-//     let students = 0;
+    //     c('End');
+    // });
+});
 
-//     for (let cours of Object.values(data)) {
-//         if (Array.isArray(cours)) {
-//             students += cours.length;
-//             for (let i = 0; i < cours.length; i++) {
-//                 total += cours[i].progress;
-//             }
-//         } else {
-//             for (let subCours of Object.values(cours)) {
-//                 students += subCours.length;
-
-//                 for (let i = 0; i < subCours.length; i++) {
-//                     total += subCours[i].progress;
-//                 }
-//             }
-//         }
-//     }
-
-//     return total / students;
-// }
-
-// c(getTotalProgressBuIteration(students));
-
-function getTotalProgressBuRecursion (data) {
-    if (Array.isArray(data)) {
-        let total = 0;
-
-        for (let i = 0; i < data.length; i++) {
-            total += data[i].progress;
-        }
-
-        return [total, data.length];
-    } else {
-        let total = [0, 0];
-
-        for (let subData of Object.values(data)) {
-            const subDataArr = getTotalProgressBuRecursion(subData);
-
-            total[0] += subDataArr[0];
-            total[1] += subDataArr[1];
-        }
-
-        return total;
-    }
-}
-
-const result = getTotalProgressBuRecursion(students);
-
-c(result[0] / result[1]);
-
-c(students);
-// c(students);
-
-
+// touches              //Выводит кол-во пальцев на экране В ВИДЕ МАССИВА
+// targetTouches        //Выводит кол-во пльцев, что взаимодействуют с конкретным объектом
+// changedTouches       //Если надо, погугли
