@@ -4,36 +4,24 @@ function c(arg) {
     console.log(arg);
 }
 
-//___________________________________Mobile comands_____________________________________
-// touchstart       //при нажатии
-// touchmove        //при меремещении
-// touchend         //при конце клика
-// touchleave       //при покидании зоны объекта, на котором есть это свойство
-// touchcancel      //при покидании пальцем зоны браузера
+//___________________________________Работа со скриптами_____________________________________
 
-window.addEventListener('DOMContentLoaded', () => {
-    const box = document.querySelector('.box');
+const p = document.querySelectorAll('p');
 
-    box.addEventListener('touchstart', (event) => {
-        event.preventDefault();
+c(p);
 
-        // c('Start');
-        c(event.targetTouches)
-    });
 
-    // box.addEventListener('touchmove', (event) => {
-    //     event.preventDefault();
+// <script async src="java/java.js"></script>       async - загружается в фоновом режиме и начинает работу сразу после его загрузки
+// <script defer src="java/java.js"></script>       defer - загружается в фоновом режиме и начинает работу по приходу его очереди
 
-    //     c('Move');
-    // });
 
-    // box.addEventListener('touchend', (event) => {
-    //     event.preventDefault();
 
-    //     c('End');
-    // });
-});
+function loadScript(src) {
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = false;
+    document.body.append(script);
+}
 
-// touches              //Выводит кол-во пальцев на экране В ВИДЕ МАССИВА
-// targetTouches        //Выводит кол-во пльцев, что взаимодействуют с конкретным объектом
-// changedTouches       //Если надо, погугли
+loadScript('какой-то путь');
+
