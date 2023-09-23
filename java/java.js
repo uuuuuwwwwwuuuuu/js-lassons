@@ -4,22 +4,35 @@ function c(arg) {
     console.log(arg);
 }
 
-//_______________________________Нулиш оператор ??_________________________________________
+//_________________________________Оператор опциональной цепочки_______________________________________
+
 
 const box = document.querySelector('.box');
+const block = document.querySelector('.block');
 
-const newH = 100;
-const newW = 400;
+console.log(block);
 
-function changeParams(elem, h, w) {
-    elem.style.height = `${h ?? 200}px`;
-    elem.style.width = `${w ?? 200}px`;
+// if (block) {
+//     console.log(block.textContent);
+// }
+
+console.log(block?.textContent);            //Тоже самое что и с if
+// block?.textContent = '123';            //Так нельзя
+
+const userData = {
+    name: 'Ivan',
+    age: null,
+    say: () => {
+        console.log('hi');
+    }
 }
 
-changeParams(box, newH, newW);
+userData.say();
+userData.hay?.();
 
-// let userName;
-// let userKey;
+// if(userData && userData.skills && userData.skills.js) {
+//     console.log(userData.skills.js);
+// }
 
-// c(userName ?? userKey ?? 'User');          //Выводит то, что после ?? (Работает только с Null и Undefinde)
+console.log(userData.skills?.js);           //Тоже самое что и с if
 
