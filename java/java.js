@@ -4,29 +4,30 @@ function c(arg) {
     console.log(arg);
 }
 
-//________________________________________________________________________
+//________________________________live collectoin________________________________________
 
-// let id = Symbol('id');
+const boxesGet = document.getElementsByClassName('box');            //Динамичная (отслеживает текущее состаяние объектов)
+const boxesQuery = document.querySelectorAll('.box');               //Статичная
 
-// const obj = {
-//     name: 'Test',
-//     [id]: 1,
-//     getId: function() {                 //стрелочную функцию здесь использовать нельзя
-//         return this[id];
-//     }
-// };
+boxesQuery.forEach(box => {
+    if (box.matches('.this')) console.log('This one!');
+});
 
-// c(obj[Object.getOwnPropertySymbols(obj)[0]]);
+console.log(boxesQuery[0].closest('.wrapper'));
 
-const myDB = {
-    movies: [],
-    actors: [],
-    [Symbol.for('id')]: 123
-}
+// boxesQuery[0].remove()
+// boxesGet[0].remove()
 
-//Сторонний код библиотеки
+// for (let i = 0; i < 5; i++) {
+//     const div = document.createElement('div');
+//     div.classList.add('box');
+//     // document.body.append(div);
+    
+// }
 
-myDB.id = '3732503';
+// console.log(boxesQuery);
+// console.log(boxesGet);
+// // console.log(document.body.children);
 
-c(myDB[Symbol.for('id')]);
-c(myDB);
+// console.log(Array.from(boxesGet));
+
