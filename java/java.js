@@ -4,30 +4,68 @@ function c(arg) {
     console.log(arg);
 }
 
-//________________________________live collectoin________________________________________
+//________________________________ Map ________________________________________
 
-const boxesGet = document.getElementsByClassName('box');            //Динамичная (отслеживает текущее состаяние объектов)
-const boxesQuery = document.querySelectorAll('.box');               //Статичная
+const user = {
+    name: 'Alex',
+    surname: 'Smith',
+    birthday: '20/04/1993',
+    showMyPublicData: function() {
+        c(`${this.name} ${this.surname}`);
+    }
+}
 
-boxesQuery.forEach(box => {
-    if (box.matches('.this')) console.log('This one!');
-});
+const userMap = new Map(Object.entries(user));          //Из объекта в карту
+c(userMap);
 
-console.log(boxesQuery[0].closest('.wrapper'));
+const newUserObj = Object.fromEntries(userMap);
+c(newUserObj);
 
-// boxesQuery[0].remove()
-// boxesGet[0].remove()
+// const shops = [
+//     {rice: 500},
+//     {oil: 200},
+//     {dread: 50}
+// ];
 
-// for (let i = 0; i < 5; i++) {
-//     const div = document.createElement('div');
-//     div.classList.add('box');
-//     // document.body.append(div);
-    
+// const shopsMoney = [5000, 20000, 15000]
+
+// const map = new Map([
+//     [{paper: 400}, 8000]
+// ]);
+
+// // map.set(shops[0] , 5000);
+
+
+// for (let i = 0; i < shops.length; i++) {            //Цикл For of здесь не работает
+//     map.set(shops[i], shopsMoney[i]);
 // }
 
-// console.log(boxesQuery);
-// console.log(boxesGet);
-// // console.log(document.body.children);
+// // c(map.get(shops[0])); 
+// // c(map.has(shops[0])); 
 
-// console.log(Array.from(boxesGet));
+// // map.delete(key);            //Удаляет конкретный элемент из карты
+// // map.clear();                //Очищает карту
+// // map.size(key);              //Кол-во элементов на данный момент внутри карты
 
+// //Перебот карт
+
+// // c(map.keys(map));
+
+// // const goods = [];
+// // for (let shops of map.keys()){
+// //     goods.push(Object.keys(shops)[0]);
+    
+// // }
+// // c(goods);
+
+// // for (let price of map.values()) {
+// //     c(price);
+// // }
+
+// // for (let [shop, price] of map.entries()) {          //Здесь диструктуризация, можно просто одну переменную поставить, крч понял, если нет, иди нахуй или смотри ролик про Map
+// //     console.log(price, shop);
+// // }
+
+// // map.forEach((value, key, map) => {
+// //     console.log(key, value);
+// // })
