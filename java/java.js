@@ -4,35 +4,29 @@ function c(arg) {
     console.log(arg);
 }
 
-//_________________________________Оператор опциональной цепочки_______________________________________
+//________________________________________________________________________
 
+// let id = Symbol('id');
 
-const box = document.querySelector('.box');
-const block = document.querySelector('.block');
+// const obj = {
+//     name: 'Test',
+//     [id]: 1,
+//     getId: function() {                 //стрелочную функцию здесь использовать нельзя
+//         return this[id];
+//     }
+// };
 
-console.log(block);
+// c(obj[Object.getOwnPropertySymbols(obj)[0]]);
 
-// if (block) {
-//     console.log(block.textContent);
-// }
-
-console.log(block?.textContent);            //Тоже самое что и с if
-// block?.textContent = '123';            //Так нельзя
-
-const userData = {
-    name: 'Ivan',
-    age: null,
-    say: () => {
-        console.log('hi');
-    }
+const myDB = {
+    movies: [],
+    actors: [],
+    [Symbol.for('id')]: 123
 }
 
-userData.say();
-userData.hay?.();
+//Сторонний код библиотеки
 
-// if(userData && userData.skills && userData.skills.js) {
-//     console.log(userData.skills.js);
-// }
+myDB.id = '3732503';
 
-console.log(userData.skills?.js);           //Тоже самое что и с if
-
+c(myDB[Symbol.for('id')]);
+c(myDB);
