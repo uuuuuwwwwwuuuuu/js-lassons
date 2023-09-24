@@ -4,68 +4,29 @@ function c(arg) {
     console.log(arg);
 }
 
-//________________________________ Map ________________________________________
+//________________________________ Set ________________________________________
 
-const user = {
-    name: 'Alex',
-    surname: 'Smith',
-    birthday: '20/04/1993',
-    showMyPublicData: function() {
-        c(`${this.name} ${this.surname}`);
-    }
+const arr = ['Alex', 'Anna', 'Oleg', 'Anna'];
+// const set = new Set(arr);
+
+// set.add('Ivan');
+// set.add('Oleg');
+// c(set);
+
+function unique (arr) {
+    return Array.from(new Set(arr));
 }
 
-const userMap = new Map(Object.entries(user));          //Из объекта в карту
-c(userMap);
+c(unique(arr));
+// set.delete(value);
+// set.has(value);
+// set.clear(value);
+// set.size(value);
 
-const newUserObj = Object.fromEntries(userMap);
-c(newUserObj);
-
-// const shops = [
-//     {rice: 500},
-//     {oil: 200},
-//     {dread: 50}
-// ];
-
-// const shopsMoney = [5000, 20000, 15000]
-
-// const map = new Map([
-//     [{paper: 400}, 8000]
-// ]);
-
-// // map.set(shops[0] , 5000);
-
-
-// for (let i = 0; i < shops.length; i++) {            //Цикл For of здесь не работает
-//     map.set(shops[i], shopsMoney[i]);
+// for (let i of set) {
+//     c(i);
 // }
 
-// // c(map.get(shops[0])); 
-// // c(map.has(shops[0])); 
-
-// // map.delete(key);            //Удаляет конкретный элемент из карты
-// // map.clear();                //Очищает карту
-// // map.size(key);              //Кол-во элементов на данный момент внутри карты
-
-// //Перебот карт
-
-// // c(map.keys(map));
-
-// // const goods = [];
-// // for (let shops of map.keys()){
-// //     goods.push(Object.keys(shops)[0]);
-    
-// // }
-// // c(goods);
-
-// // for (let price of map.values()) {
-// //     c(price);
-// // }
-
-// // for (let [shop, price] of map.entries()) {          //Здесь диструктуризация, можно просто одну переменную поставить, крч понял, если нет, иди нахуй или смотри ролик про Map
-// //     console.log(price, shop);
-// // }
-
-// // map.forEach((value, key, map) => {
-// //     console.log(key, value);
-// // })
+// set.forEach((item, valueAgaing, set) => {
+//     console.log(valueAgaing, item);
+// }); 
