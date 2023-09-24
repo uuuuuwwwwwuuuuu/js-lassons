@@ -4,29 +4,37 @@ function c(arg) {
     console.log(arg);
 }
 
-//________________________________ Set ________________________________________
+//________________________________ Delegirovanie ________________________________________
 
-const arr = ['Alex', 'Anna', 'Oleg', 'Anna'];
-// const set = new Set(arr);
+const btns = document.querySelectorAll('button'),
+      wrapper = document.querySelector(".btn-block");
 
-// set.add('Ivan');
-// set.add('Oleg');
-// c(set);
+// c(btns[0].classList.length);
+// c(btns[0].classList.item(0));
+// btns[1].classList.add('red');
+// btns[0].classList.remove('blue');
+// btns[0].classList.toggle('blue');
 
-function unique (arr) {
-    return Array.from(new Set(arr));
-}
-
-c(unique(arr));
-// set.delete(value);
-// set.has(value);
-// set.clear(value);
-// set.size(value);
-
-// for (let i of set) {
-//     c(i);
+// if (btns[1].classList.contains('red')) {
+//     c('red');
 // }
 
-// set.forEach((item, valueAgaing, set) => {
-//     console.log(valueAgaing, item);
-// }); 
+// btns[0].addEventListener('click', () => {
+//     if (!btns[1].classList.contains('red')) {
+//         btns[1].classList.add('red');
+//     } else {
+//         btns[1].classList.remove('red');
+//     }
+// });
+
+// console.log(btns[0].className);
+
+wrapper.addEventListener('click', (event) => {
+    if (event.target.tagName == 'BUTTON' && event.target) {
+        c('Hallo');
+    }
+});
+
+const btn = document.createElement('button');
+btn.classList.add('red');
+wrapper.append(btn); 
