@@ -4,14 +4,32 @@ function c(arg) {
     console.log(arg);
 }
 
-//________________________________ Work with data (time) ________________________________________
+//________________________________ Work with window ________________________________________
 
-const now = new Date();
+const box = document.querySelector('.box');
 
-// c(now.getHours());
-// now.getDate();                      //День
-// now.getFullYear();                  //Год
-// now.getHours();                     //Час
-// now.getMonth();                     //Месяц      (Начинается с нуля)
-// now.getDay();                       //День       (Начинается с воскресенья, с нуля)
+// const width = box.clientWidth;
+// const height = box.clientHeight;
 
+const width = box.offsetWidth;
+const height = box.offsetHeight;
+
+const scrolHeight = box.scrollHeight;
+
+
+c(width);
+c(height);
+c(scrolHeight);
+
+const btn = document.querySelector('button');
+
+btn.addEventListener('click', () => {
+    // box.style.height = scrolHeight + 'px';
+    c(box.scrollTop);
+});
+
+console.log(box.getBoundingClientRect());           //Получает позицию элемента
+
+const style = window.getComputedStyle(box);
+
+c(style.display);
