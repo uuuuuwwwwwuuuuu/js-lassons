@@ -4,32 +4,25 @@ function c(arg) {
     console.log(arg);
 }
 
-//________________________________ Work with window ________________________________________
+//________________________________ function constractor ________________________________________
 
-const box = document.querySelector('.box');
+function User(name, id) {
+    this.name = name;
+    this.id = id;
+    this.human = true;
+    this.hello = function() {
+        c(`Hello, ${this.name}`)
+    }
+}
 
-// const width = box.clientWidth;
-// const height = box.clientHeight;
+User.prototype.exit = function() {
+    c(`Пользователь ${this.name} ушёл`)
+};
 
-const width = box.offsetWidth;
-const height = box.offsetHeight;
+const ivan = new User('Ivan', 28);
+const alex = new User('Alex', 20);
 
-const scrolHeight = box.scrollHeight;
+ivan.exit();
 
-
-c(width);
-c(height);
-c(scrolHeight);
-
-const btn = document.querySelector('button');
-
-btn.addEventListener('click', () => {
-    // box.style.height = scrolHeight + 'px';
-    c(box.scrollTop);
-});
-
-console.log(box.getBoundingClientRect());           //Получает позицию элемента
-
-const style = window.getComputedStyle(box);
-
-c(style.display);
+c(ivan);
+c(alex);
