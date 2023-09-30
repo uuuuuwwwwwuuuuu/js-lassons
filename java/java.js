@@ -4,16 +4,23 @@ function c(arg) {
     console.log(arg);
 }
 
-//________________________________ Rest ________________________________________
+//________________________________ JSON ________________________________________
 
-const log = function(a, b, ...c) {           //аргументы a, b при вызове присвоить обязательно, следующие - опционально
-    console.log(a, b, c);
-}
+const persone = {
+    name: 'Alex',
+    tel: '+807658576',
+    parents: {
+        mom: 'Olga',
+        dad: 'Mike'
+    }
+};
 
-log('basic', 'rest', 'operator', 'usage');   //все значения аргументов после 'rest' будут помещены в массив
+const clone = JSON.parse(JSON.stringify(persone));      //Глубокое клонирование объекта
 
-function calcOrDouble(number, basis = 2) {      //Если в переменную basis не будет указанно значение при вызове, значение будет равно 2    
-    console.log(number * basis);
-}
+clone.parents.mom = 'Anna';
 
-calcOrDouble(3);
+c(persone);
+c(clone);
+
+//.stringify() - объект в JSON
+//.parse() - JSON в объект
