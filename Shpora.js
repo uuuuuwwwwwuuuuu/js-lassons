@@ -565,3 +565,67 @@ function loadScript(src) {
 }
 
 loadScript('какой-то путь');
+
+//_______________________________________ Observer ___________________________________________
+//Observer служит для слежки за изменениями элементов
+
+const box = document.querySelector('.box');
+
+let observer = new MutationObserver(MutationRecords => {
+    console.log(MutationRecords);
+});
+
+observer.observe(box, {
+    childList: true                 //То, за чем следить можно подсмотреть в документации
+});
+
+//_____________________________________ Scrol ____________________________________
+const box = document.querySelector('.box');
+
+//Смотри по фотке из курса:
+const wwidth = box.clientWidth;
+const hheight = box.clientHeight;
+const width = box.offsetWidth;
+const height = box.offsetHeight;
+
+const scrolHeight = box.scrollHeight;           //document.documentElement.scrollHeight длинна всей страницы (в пикселях)
+
+
+c(width);
+c(height);
+c(scrolHeight);
+
+const btn = document.querySelector('button');
+
+btn.addEventListener('click', () => {
+    // box.style.height = scrolHeight + 'px';
+    c(box.scrollTop);
+});
+
+console.log(box.getBoundingClientRect());           //Получает позицию элемента
+
+const style = window.getComputedStyle(box);
+
+//________________________________________ Интервалы ________________________________________
+
+const btn = document.querySelector('.btn');
+let timerId,
+    counter = 0;
+
+function myAnimation() {
+    const elem = document.querySelector('.box');
+    let pos = 0;
+
+    const id = setInterval(frame, 10);
+    function frame() {
+        if (pos == 300) {
+            clearInterval(id);
+        } else {
+            pos++;
+            elem.style.top = pos + 'px';
+            elem.style.left = pos + 'px';
+        }
+    }
+}
+
+btn.addEventListener('click', myAnimation);

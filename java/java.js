@@ -4,37 +4,16 @@ function c(arg) {
     console.log(arg);
 }
 
-//________________________________ Classes ________________________________________
+//________________________________ Rest ________________________________________
 
-class Rectangle {
-    constructor(height, width) {
-        this.height = height;
-        this.width = width;
-    }
-
-    calcArea() {
-        return this.height * this.width;
-    }
+const log = function(a, b, ...c) {           //аргументы a, b при вызове присвоить обязательно, следующие - опционально
+    console.log(a, b, c);
 }
 
-class ColoredRectangleWithText extends Rectangle {
-    constructor(height, width, text, bgColor) {
-        super(height, width);
-        this.text = text;
-        this.bgColor = bgColor;
-    }
+log('basic', 'rest', 'operator', 'usage');   //все значения аргументов после 'rest' будут помещены в массив
 
-    showMyProps() {
-        c(`Текст: ${this.text}, цвет: ${this.bgColor}`);
-    }
+function calcOrDouble(number, basis = 2) {      //Если в переменную basis не будет указанно значение при вызове, значение будет равно 2    
+    console.log(number * basis);
 }
 
-// const square = new Rectangle(10, 10);
-// const long = new Rectangle(20, 100);
-
-const div = new ColoredRectangleWithText(25, 10, 'Hallo World', 'red');
-div.showMyProps();
-console.log(div.calcArea());
-
-// c(long.calcArea());
-// c(square.calcArea()); 
+calcOrDouble(3);
