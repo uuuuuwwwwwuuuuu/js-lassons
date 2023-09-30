@@ -4,23 +4,44 @@ function c(arg) {
     console.log(arg);
 }
 
-//________________________________ JSON ________________________________________
+//________________________________ Work with server ________________________________________
 
-const persone = {
-    name: 'Alex',
-    tel: '+807658576',
-    parents: {
-        mom: 'Olga',
-        dad: 'Mike'
-    }
-};
+const inputRub = document.querySelector('#rub');
+const inputUsd = document.querySelector('#usd');
 
-const clone = JSON.parse(JSON.stringify(persone));      //Глубокое клонирование объекта
+inputRub.addEventListener('input', () => {
+    const request = new XMLHttpRequest();
 
-clone.parents.mom = 'Anna';
+    request.open('GET', 'js/current.json');
+    request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    request.send();
+    
+    // request.addEventListener('readystatechange', () => {
+    //     if (request.readyState === 4 && request.status === 200) {
+    //         const data = JSON.parse(request.response);
+    //         inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
+    //         // c('hi')
+    //     } else {
+    //         inputUsd.value = 'Что-то пошло не так'
+    //     }
+    // });
+    
+    request.addEventListener('load', () => {
+        if (request.status === 200) {
+            const data = JSON.parse(request.response);
+            inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
+            // c('hi')
+        } else {
+            inputUsd.value = 'Что-то пошло не так'
+        }
+    });
 
-c(persone);
-c(clone);
+    // request.open(method, url, async, login, pass);          //Шаблон
 
-//.stringify() - объект в JSON
-//.parse() - JSON в объект
+    // status - состаяние сервера (в виде код, например : 404)
+    // statusText - состаяние сервера (в виде текста)
+    // response - ответ
+    // readyState - состояние ответа (если забыл, пересмотри по курсу, +- 10-я минута)
+
+
+});
