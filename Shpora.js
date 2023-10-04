@@ -650,3 +650,56 @@ clone.parents.mom = 'Anna';
 
 c(persone);
 c(clone);
+
+//________________________________ Promise ________________________________________
+
+const req = new Promise(function(resolve, reject) {
+    setTimeout(() => {
+        console.log('Подготовка данных...');
+    
+        const product = {
+            name: 'TV',
+            price: 2000
+        };
+        
+        resolve(product);
+        
+    }, 2000);
+}).then((product) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            product.status = 'order';
+            resolve();
+        }, 2000); 
+    });
+}).then(product => {
+    product.modify = true;
+    return product;
+}).then(product => {
+    console.log(product);
+}).catch(() => {
+    console.error('Произошла ошибка');
+}).finally(() => {
+    console.log('Finally');
+});
+
+//_________________
+
+const test = time => {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(), time);
+    });
+}
+
+test(1000).then(() => console.log('1000 ms'));
+test(2000).then(() => console.log('2000 ms'));
+
+//_________________
+
+Promise.all([test(1000), test(2000)]).then(() => {                  //Пока не загрузятся все промисы
+    console.log('All');
+});
+
+Promise.race([test(1000), test(2000)]).then(() => {                 //Пока не загрузится хотя бы 1 промис
+    console.log('race');
+});

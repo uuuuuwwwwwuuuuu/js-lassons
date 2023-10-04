@@ -4,44 +4,53 @@ function c(arg) {
     console.log(arg);
 }
 
-//________________________________ Work with server ________________________________________
+//________________________________ Promise ________________________________________
 
-const inputRub = document.querySelector('#rub');
-const inputUsd = document.querySelector('#usd');
+console.log("Запрос данных...");
 
-inputRub.addEventListener('input', () => {
-    const request = new XMLHttpRequest();
-
-    request.open('GET', 'js/current.json');
-    request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-    request.send();
+const req = new Promise(function(resolve, reject) {
+    setTimeout(() => {
+        console.log('Подготовка данных...');
     
-    // request.addEventListener('readystatechange', () => {
-    //     if (request.readyState === 4 && request.status === 200) {
-    //         const data = JSON.parse(request.response);
-    //         inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
-    //         // c('hi')
-    //     } else {
-    //         inputUsd.value = 'Что-то пошло не так'
-    //     }
-    // });
-    
-    request.addEventListener('load', () => {
-        if (request.status === 200) {
-            const data = JSON.parse(request.response);
-            inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
-            // c('hi')
-        } else {
-            inputUsd.value = 'Что-то пошло не так'
-        }
+        const product = {
+            name: 'TV',
+            price: 2000
+        };
+        
+        resolve(product);
+        
+    }, 2000);
+}).then((product) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            product.status = 'order';
+            resolve();
+        }, 2000); 
     });
+}).then(product => {
+    product.modify = true;
+    return product;
+}).then(product => {
+    console.log(product);
+}).catch(() => {
+    console.error('Произошла ошибка');
+}).finally(() => {
+    console.log('Finally');
+});
 
-    // request.open(method, url, async, login, pass);          //Шаблон
+const test = time => {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(), time);
+    });
+}
 
-    // status - состаяние сервера (в виде код, например : 404)
-    // statusText - состаяние сервера (в виде текста)
-    // response - ответ
-    // readyState - состояние ответа (если забыл, пересмотри по курсу, +- 10-я минута)
+test(1000).then(() => console.log('1000 ms'));
+test(2000).then(() => console.log('2000 ms'));
 
+Promise.all([test(1000), test(2000)]).then(() => {
+    console.log('All');
+});
 
+Promise.race([test(1000), test(2000)]).then(() => {
+    console.log('race');
 });
