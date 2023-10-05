@@ -230,6 +230,46 @@ for (let v of arr) {
     c(v);
 }
 
+//______________________________________________ Еще про работу с массивами
+
+//________________ filter
+const names = ['Ivan', 'Ann', 'Ksenia', 'Voldemart'];
+
+const shortNames = names.filter((name) => {
+    return name.length < 5;         //Вернёт изменённый массив с элементами, длинна которых не длиннее 5 букв
+});
+c(shortNames);
+
+//________________ map
+
+const arr = ['IvAn', 'AnNA', 'HeLlO'];
+const res = arr.map(item => item.toLowerCase());
+c(res);
+
+//________________ every / some
+
+const arr = [4, 2, 3];
+
+c(arr.some(item => typeof(item) == 'number'));           //Если хотя бы один эллемент подходит - True
+
+c(arr.every(item => typeof(item) == 'number'));             //Если все элементы подходят - True
+
+//________________ reduce
+
+const arr = ['apple', 'pear', 'plum'];
+
+const res = arr.reduce((sum, current) => {                  //Если забыл, пересмотри, если кратко, складывает все элементы массива
+    return `${sum}, ${current}`;
+});
+
+const arr = [4, 5, 1, 3, 2, 6];
+
+const res = arr.reduce((sum, current) => {                  
+    return sum + current;
+});
+
+c(res);
+
 //______________________________________________ Клонирование и ссылки _____________________________________________
 
 //______________________________________________ Ссылки
@@ -703,3 +743,19 @@ Promise.all([test(1000), test(2000)]).then(() => {                  //Пока �
 Promise.race([test(1000), test(2000)]).then(() => {                 //Пока не загрузится хотя бы 1 промис
     console.log('race');
 });
+
+//________________________________ Fetch ________________________________________
+
+//Get запрос
+fetch('https://jsonplaceholder.typicode.com/todos/3')
+    .then(response => response.json())
+    .then(json => console.log(json));
+
+//POST запрос
+fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: "POST",
+    body: JSON.stringify({name: "Alex"}),
+    headers: {
+        'Content-type': 'application/json'
+    }
+})
