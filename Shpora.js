@@ -180,6 +180,7 @@ for (let i = 0; i < 3; i++) {
 const some = "Some words";
 
 c(some.substr(5, 5));    // substr(От куда начинать (по индексу), сколько букв вперёд)
+c(some.slice(5, 6));    // slice (От куда начинать (по индексу), до куда)
 some.toLowerCase()      //Нижний регистор
 some.toUpperCase()      //Верхний регистор
 
@@ -759,3 +760,31 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
         'Content-type': 'application/json'
     }
 })
+
+//______________________________ Local Storadge ______________________________
+localStorage.setItem('number', 5);                      //Записать
+localStorage.getItem('number');                      //Получить
+localStorage.removeItem('number');                      //Удалить
+localStorage.clear()                                    //Удалить всё
+
+//________________________________ Regular ________________________________________
+const str = 'My name id R2D2';
+const reg = /\d/ig;
+
+// flags
+// i   //Поиск независимо от регистра
+// g   //Глобальный поиск
+// m   //Многострочный режим
+
+// Classes
+// \d  //Числа
+// \w  //Буквы
+// \s  //Пробелы
+
+// Revers classes
+// \D
+// \W
+// \S
+
+console.log(str.search(reg));
+console.log(str.match(reg));

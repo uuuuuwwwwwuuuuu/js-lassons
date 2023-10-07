@@ -4,55 +4,35 @@ function c(arg) {
     console.log(arg);
 }
 
-//________________________________ Sort Arrays ________________________________________
-////________________ filter
+//________________________________ Regular ________________________________________
+// const str = 'My name id R2D2';
+// const reg = /\d/ig;
 
-// const names = ['Ivan', 'Ann', 'Ksenia', 'Voldemart'];
+//flags
+// i   //Поиск независимо от регистра
+// g   //Глобальный поиск
+// m   //Многострочный режим
 
-// const shortNames = names.filter((name) => {
-//     return name.length < 5;         //Вернёт изменённый массив с элементами, длинна которых не длиннее 5 букв
-// });
-// c(shortNames);
+//Classes
+// \d
+// \w
+// \s
 
-//________________ map
+// console.log(str.search(reg));
+// console.log(str.match(reg));
 
-// const arr = ['IvAn', 'AnNA', 'HeLlO'];
-// const res = arr.map(item => item.toLowerCase());
+// const pass = prompt('Password', '');
+
+// c(pass.replace(/./g, "*"));
+
+// const res = +ans.match(reg).join('');
 // c(res);
 
-//________________ every / some
+const str = 'My name id R2D2';
 
-// const arr = [4, '2', 3];
+c(str.match(/\w\d\w\w/i));
 
-// c(arr.some(item => typeof(item) == 'number'));           //Если хотя бы один эллемент подходит - True
-
-// c(arr.every(item => typeof(item) == 'number'));             //Если все элементы подходят - True
-
-//________________ reduce
-
-// const arr = ['apple', 'pear', 'plum'];
-
-// const res = arr.reduce((sum, current) => {                  //Если забыл, пересмотри, если кратко, складывает все элементы массива
-//     return `${sum}, ${current}`;
-// });
-
-// const arr = [4, 5, 1, 3, 2, 6];
-
-// const res = arr.reduce((sum, current) => {                  
-//     return sum + current;
-// });
-
-// c(res);
-
-const obj = {
-    ivan: 'persone',
-    ann: 'persone',
-    dog:'animal',
-    cat: 'animal'
-};
-
-const newArr = Object.entries(obj)
-    .filter(item => item[1] === 'persone')
-    .map(item => item[0]);
-
-c(newArr);
+// Revers classes
+// \D
+// \W
+// \S

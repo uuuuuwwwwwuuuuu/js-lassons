@@ -1,5 +1,8 @@
-button {
+input {
     background-color: aquamarine;
-    height: 50px;
-    width: 200px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
 }
