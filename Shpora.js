@@ -424,6 +424,8 @@ console.log(c1, c2, c3);
 
 //______________________________________________ Рекурсия
 
+const c = (a) => console.log(a);
+
 let students = {
     js: [{
         name: 'John',

@@ -4,35 +4,32 @@ function c(arg) {
     console.log(arg);
 }
 
-//________________________________ Regular ________________________________________
-// const str = 'My name id R2D2';
-// const reg = /\d/ig;
+//________________________________ Incapsulation (get/set) ________________________________________
 
-//flags
-// i   //Поиск независимо от регистра
-// g   //Глобальный поиск
-// m   //Многострочный режим
+class User {
+constructor(name, age) {
+    this.name = name;
+    this._age = age;
+}
 
-//Classes
-// \d
-// \w
-// \s
+    say() {
+        c(`Имя пользователя ${this.name} ${this.surname}, возраст ${this._age}`);
+    }
 
-// console.log(str.search(reg));
-// console.log(str.match(reg));
+    get age() {
+        return this._age;
+    }
 
-// const pass = prompt('Password', '');
+    set age(age) {
+        if (typeof(age) === 'number' && age > 0 && age < 110) {
+            this._age = age;
+        } else {
+            c('Недопустимое значение');
+        }
+    }
+}
 
-// c(pass.replace(/./g, "*"));
+const user = new User('Denis', 27);
+user.age = 17;
 
-// const res = +ans.match(reg).join('');
-// c(res);
-
-const str = 'My name id R2D2';
-
-c(str.match(/\w\d\w\w/i));
-
-// Revers classes
-// \D
-// \W
-// \S
+user.say();
